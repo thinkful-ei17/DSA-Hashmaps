@@ -3,19 +3,37 @@ const hashMap = require('./hashMap');
 const palPerm = new hashMap();
 
 const palPermFinder = (string) => {
-  string.split('').forEach((letter) => {
+  let arr = [];
+  string.replace(' ', '').split('').forEach((letter) => {
     try {
       palPerm.set(letter, palPerm.get(letter)+1);
     }
     catch(err) {
-      console.log('error thrown');
       palPerm.set(letter, 1);
+
+      arr.push(letter);
+      //{letter: value}
     }
   });
+
+  let oddOcc = 0;
+  for (index in arr) {
+
+    if (palPerm.get(arr[index]) % 2 !== 0){
+      oddOcc = oddOcc + 1;
+    }
+
+    if (oddOcc > 1){
+      return false;
+    }
+
+  }
+
+  return true;
 };
 
-palPermFinder('racecar');
-console.log(palPerm);
+console.log(palPermFinder('race car'));
+//console.log(palPerm);
 
 
 // can never have more than 1 odd number
@@ -23,7 +41,7 @@ console.log(palPerm);
 
 // if num > 1 {
 // return num % 2 === 0;
-//} 
+//}
 
 
 
