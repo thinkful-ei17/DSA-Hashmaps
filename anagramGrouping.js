@@ -49,7 +49,7 @@ function anything(words) {
 
       let oldArr =  hashMap.get(sorted);
       let newArr = [...oldArr, word]
-      hashMap.set(sorted, hashMap.get(sorted).push('1'));
+      hashMap.set(sorted, newArr);
     }
     catch(err) {
       //if it doesnt exist
@@ -69,11 +69,11 @@ function anything(words) {
   //.get() = [word, word]
   //push(.get())
   console.log('keys', keys);
-  // for(let index in keys) {
-  //   outputArr.push();
-  // }
+  for(let index in keys) {
+    outputArr.push(hashMap.get(keys[index]));
+  }
   //
-  // return outputArr;
+  return outputArr;
 }
 
 function anotherOne(words) {
