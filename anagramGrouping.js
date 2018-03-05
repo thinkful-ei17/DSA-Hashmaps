@@ -30,13 +30,13 @@ const HashMap = require('./hashMap');
 
 
 function anything(words) {
-  let keys = [];
-  let hashMap = new HashMap();
+  const keys = [];
+  const hashMap = new HashMap();
 
-  for(let index in words) {
-    let word = words[index];
+  for(const index in words) {
+    const word = words[index];
     console.log('the word:', words[index]);
-    let sorted = words[index].split('').sort().join('');
+    const sorted = words[index].split('').sort().join('');
 
     try {
       //if it exists
@@ -47,15 +47,15 @@ function anything(words) {
       console.log('array that is returned', hashMap.get(sorted));
       console.log('type of', typeof(hashMap.get(sorted)));
 
-      let oldArr =  hashMap.get(sorted);
-      let newArr = [...oldArr, word]
+      const oldArr =  hashMap.get(sorted);
+      const newArr = [...oldArr, word];
       hashMap.set(sorted, hashMap.get(sorted).push('1'));
     }
     catch(err) {
       //if it doesnt exist
       //  create key, add word to arr
       console.log('key doesnt exist, add it!');
-      let arr = [];
+      const arr = [];
       arr.push(words[index]);
       hashMap.set(sorted, arr);
 
@@ -65,7 +65,7 @@ function anything(words) {
 
   console.log(hashMap);
 
-  let outputArr = [];
+  const outputArr = [];
   //.get() = [word, word]
   //push(.get())
   console.log('keys', keys);
