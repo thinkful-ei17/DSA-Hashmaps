@@ -40,6 +40,7 @@ class HashMap {
   }
 
   _findSlot(key) {
+    console.log('key',key);
     const hash = HashMap._hashString(key);
     const start = hash % this._capacity;
 
@@ -70,5 +71,10 @@ class HashMap {
 HashMap.MAX_LOAD_RATIO = 0.9;
 HashMap.SIZE_RATIO = 3;
 
+const map = new HashMap();
+for(let i = 0; i < 55; i++){
+  map.set('' + i, '' + i);
+}
 
+console.log(map);
 module.exports = HashMap;
