@@ -68,12 +68,13 @@ function anything(words) {
   const outputArr = [];
   //.get() = [word, word]
   //push(.get())
+  
   console.log('keys', keys);
-  // for(let index in keys) {
-  //   outputArr.push();
-  // }
-  //
-  // return outputArr;
+  for(let index in keys) {
+    outputArr.push();
+  }
+
+  return outputArr;
 }
 
 function anotherOne(words) {
