@@ -30,44 +30,48 @@ const HashMap = require('./hashMap');
 
 
 function anything(words) {
-  let keys = [];
-  let hashMap = new HashMap();
+  const keys = [];
+  const hashMap = new HashMap();
 
-  for(let index in words) {
-    let word = words[index];
-    console.log('the word:', words[index]);
-    let sorted = words[index].split('').sort().join('');
+  for(const index in words) {
+
+    const word = words[index];
+    const sorted = words[index].split('').sort().join('');
 
     try {
-      //if it exists
-      //  push the word
-      //hashMap.get(sorted) = []
-      console.log('the key: ', sorted);
-      console.log('whats in hash for each key', hashMap.get(sorted));
-      console.log('array that is returned', hashMap.get(sorted));
-      console.log('type of', typeof(hashMap.get(sorted)));
 
-      let oldArr =  hashMap.get(sorted);
-      let newArr = [...oldArr, word]
+      console.log("===========START TRY============");
+      console.log('the word:', word);
+      console.log('the key: ', sorted);
+      console.log('array that is returned', hashMap.get(sorted));
+
+      const oldArr =  hashMap.get(sorted);
+      const newArr = [...oldArr, word];
+
+      console.log('newArr is...', newArr);
+
       hashMap.set(sorted, newArr);
+      console.log("=========== END TRY============");
     }
     catch(err) {
-      //if it doesnt exist
-      //  create key, add word to arr
+      console.log("===========START CATCH============");
       console.log('key doesnt exist, add it!');
-      let arr = [];
+      const arr = [];
       arr.push(words[index]);
       hashMap.set(sorted, arr);
 
       keys.push(sorted);
+      console.log("=========== END CATCH============");
+
     }
   }
 
   console.log(hashMap);
 
-  let outputArr = [];
+  const outputArr = [];
   //.get() = [word, word]
   //push(.get())
+
   console.log('keys', keys);
   for(let index in keys) {
     outputArr.push(hashMap.get(keys[index]));
